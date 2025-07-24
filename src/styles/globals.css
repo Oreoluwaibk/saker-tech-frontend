@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
+  display: none;
+}
+
+.yellow_style .ant-select-selector{
+  background-color: #FED500 !important;
+}
+
+.ant-menu-submenu-selected>.ant-menu-submenu-title {
+  background-color: #FED500 !important;
+  color: #2E2E2E !important;
+}
+
+
