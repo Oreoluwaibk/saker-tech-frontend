@@ -123,10 +123,29 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             key: "Staff Management",
             icon: <Image src={Student} alt="Students" width={20} height={20} />,
              children: [
-                { key: '11', label: 'Role Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '12', label: 'Free Teacher List', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '13', label: 'Human Resources', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '14', label: 'Manage Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: 'sub7', label: 'Role Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />,
+               children:[
+                   { key: '11.0', label: 'Employee List', icon: <Image src={Course} alt="Courses" width={20} height={20} />},
+                { key: '11.1', label: 'Assign menu', icon: <Image src={Course} alt="Courses" width={20} height={20} />},
+               ]
+            },
+            
+                { key: 'sub8', label: 'Human Resources', icon: <Image src={Course} alt="Courses" width={20} height={20} />,
+                children:[
+                    { key: '11.2', label: 'Leave Type', icon: <Image src={Course} alt="Courses" width={20} height={20} />},
+                    { key: '11.3', label: 'Approve Leave Request', icon: <Image src={Course} alt="Courses" width={20} height={20} />},
+                    { key: '11.4', label: 'Apply Leave', icon: <Image src={Course} alt="Courses" width={20} height={20} />},
+                ]
+            },
+                { key: 'sub9', label: 'Manage Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />,
+                children:[
+                    { key: '11.5', label: 'Leave Type', icon: <Image src={Course} alt="Courses" width={20} height={20} />}, 
+                    { key: '11.6', label: 'Pending Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />}, 
+                    { key: '11.7', label: 'Approve Student Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />}, 
+                    { key: '11.8', label: 'Approve Employee Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />}, 
+                    { key: '11.9', label: 'Disapprove Employee Leaves', icon: <Image src={Course} alt="Courses" width={20} height={20} />}, 
+                ]
+             },
             ]
         },
         {
@@ -141,8 +160,8 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             ]
         },
         {
-            label: "Fanancial Management",
-            key: "Fanancial Management",
+            label: "Financial Management",
+            key: "Financial Management",
             icon: <Image src={Analytics} alt="Analytics" width={20} height={20} />,
              children: [
                 { key: '19', label: 'Expenses', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
@@ -221,6 +240,16 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "4.9")  router.push("/core-academics/manage-master/manage-category");
         if(value.key === "5.0")  router.push("/core-academics/manage-master/manage-subcategory");
         if(value.key === "5.1")  router.push("/core-academics/manage-master/manage-level");
+        if(value.key === "11.0")  router.push("/staff-management/role-management/employee-list");
+        if(value.key === "11.1")  router.push("/staff-management/role-management/assign-menu");
+        if(value.key === "11.2")  router.push("/staff-management/human-resources/leave-type");
+        if(value.key === "11.3")  router.push("/staff-management/human-resources/approve-leave-request");
+        if(value.key === "11.4")  router.push("/staff-management/human-resources/apply-leave");
+        if(value.key === "11.5")  router.push("/staff-management/manage-leaves/leave-type");
+        if(value.key === "11.6")  router.push("/staff-management/manage-leaves/pending-leaves");
+        if(value.key === "11.7")  router.push("/staff-management/manage-leaves/approve-student-leaves");
+        if(value.key === "11.8")  router.push("/staff-management/manage-leaves/approved-employee-leaves");
+        if(value.key === "11.9")  router.push("/staff-management/manage-leaves/disapproved-employee-leaves");
         if(value.key === "Students")  router.push("/students");
         if(value.key === "Wallet")  router.push("/wallet");
         if(value.key === "Analytics")  router.push("/analytics");

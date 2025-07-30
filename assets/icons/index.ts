@@ -20,3 +20,8 @@ export { default as UploadIcon } from "./tlp-upload.svg";
 export { default as UploadImage } from "./uploadimg.svg";
 export { default as UploadVideo } from "./uploadvideo.svg";
 export { default as UploadFile } from "./fileupload.svg";
+
+export { default as Edit } from "./edit.svg";
+export { default as Download } from "./download.svg";
+export { default as Eye } from "./eye.svg";
+export { default as Delete } from "./delete.svg";
