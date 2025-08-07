@@ -13,24 +13,20 @@ import Image from 'next/image';
 import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import CreateContent from '@/components/modals/CreateContent';
 import { Media } from '../../../../../assets/icons';
-import UploadChapterModal from '@/components/modals/UploadChapter';
+import UploadChapter from '@/components/modals/UploadChapter';
 
+
+interface Chapter { 
+  board: string;
+  subject: string;
+  class: string;
+  chapter: string;
+}
 const Index = () => {
-  const [open, setOpen] = useState(false);
-  const [openUpload, setOpenUpload] = useState(false);
-  const [chapters, setChapters] = useState([
-    {
-      title: 'Chapter 1',
-      name: 'Quadratic Equations',
-      enabled: true,
-    },
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [chapterLists, setChapterLists] = useState<Chapter[]>([
   ]);
-
-  const handleToggle = (index: number, checked: boolean) => {
-    const updated = [...chapters];
-    updated[index].enabled = checked;
-    setChapters(updated);
-  };
 
   return (
     <DashboardContainer name="Create Content" activeKey="10.0">
@@ -51,6 +47,7 @@ const Index = () => {
         extra={
           <div className="flex gap-4">
             <Button
+            onClick={()=>setIsCreateModalOpen(true)}
               type="primary"
               className="!h-[54px] !w-[160px] !text-[#3E444C] !rounded-[5px] !font-semibold"
             >
@@ -59,7 +56,7 @@ const Index = () => {
           </div>
         }
       >
-        {chapters.length === 0 ? (
+        {chapterLists.length === 0 ? (
           <div className="flex w-full flex-col items-center gap-1">
             <Image src={Media} alt="" />
             <div className="text-center">
@@ -67,7 +64,7 @@ const Index = () => {
               <p className="text-[#667085]">No Content available</p>
             </div>
             <Button
-              onClick={() => setOpen(true)}
+              onClick={() => setIsCreateModalOpen(true)}
               type="primary"
               className="!h-[54px] !w-[160px] !text-[#3E444C] !rounded-[5px] !font-semibold"
             >
@@ -76,10 +73,10 @@ const Index = () => {
           </div>
         ) : (
           <section className="flex items-center gap-2 flex-col w-full">
-            {chapters.map((chapter, index) => (
+            {chapterLists.map((chapter, index) => (
               <div className="w-full p-4 flex flex-col gap-2" key={index}>
                 <Card
-                  title={`${chapter.title}: ${chapter.name}`}
+                  title={`${chapter.chapter}: ${chapter.subject}`}
                   extra={
                     <div className="flex gap-2 items-center">
                       <Button className="!p-0 text-[#A4A4A4] !border-0 !shadow-none">
@@ -93,8 +90,6 @@ const Index = () => {
                       </Button>
                       <Switch
                         size="small"
-                        checked={chapter.enabled}
-                        onChange={(checked) => handleToggle(index, checked)}
                       />
                     </div>
                   }
@@ -103,7 +98,7 @@ const Index = () => {
                     title={
                       <div className="flex gap-2 items-center">
                         <PlaySquareFilled />
-                        <h3>1 Fraction</h3>
+                        <h3>{chapter.board}</h3>
                       </div>
                     }
                     styles={{
@@ -126,7 +121,7 @@ const Index = () => {
                   />
 
                   <div className="flex items-center gap-2 mt-5">
-                    <Button size="small" type="primary">
+                    <Button onClick={()=>setIsUploadModalOpen(true)} size="small" type="primary">
                       <UploadOutlined />
                     </Button>
                     <p className="text-[#FED500]">Upload Content</p>
@@ -137,7 +132,7 @@ const Index = () => {
 
             <Button
               icon={<PlusOutlined />}
-              onClick={() => setOpen(true)}
+              onClick={() => setIsCreateModalOpen(true)}
               type="primary"
               className="!h-[54px] !w-[160px] !text-[#3E444C] !rounded-[5px] !font-semibold"
             >
@@ -145,8 +140,8 @@ const Index = () => {
             </Button>
           </section>
         )}
-        <UploadChapterModal open={openUpload} onClose={()=> setOpenUpload(false)} chapterTitle='Chapter one' onUpload={()=>{}}/>
-        <CreateContent open={open} onCancel={() => setOpen(false)} />
+        <UploadChapter open={isUploadModalOpen} onClose={()=> setIsUploadModalOpen(false)} chapterTitle='Chapter one' onUpload={()=>{}}/>
+        <CreateContent chapterLists={chapterLists} onAddChapter={setChapterLists}  open={isCreateModalOpen} onCancel={() => setIsCreateModalOpen(false)} />
       </Card>
     </DashboardContainer>
   );

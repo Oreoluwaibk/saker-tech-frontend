@@ -8,7 +8,7 @@ import {
   Button,
   Typography,
 } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { UploadOutlined, VideoCameraFilled, AudioFilled, BookFilled, YoutubeFilled,BookTwoTone } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
 
@@ -20,12 +20,15 @@ interface UploadChapterModalProps {
 }
 
 const DOCUMENT_TYPES = [
-  { value: 'pdf', label: 'PDF Document' },
-  { value: 'docx', label: 'Word Document' },
-  { value: 'pptx', label: 'PowerPoint' },
+  { value: 'video', label: <div className='flex gap-2'><VideoCameraFilled/><p>Video</p></div>},
+  { value: 'audio', label: <div className='flex gap-2'><AudioFilled/><p>Audio</p></div>},
+  { value: 'course', label: <div className='flex gap-2'><BookFilled/><p>Course Book</p></div>},
+  { value: 'youtube link', label: <div className='flex gap-2'><YoutubeFilled/><p>YouTube Link</p></div>},
+  { value: 'Workbook', label: <div className='flex gap-2'><BookTwoTone/><p>WorkBook</p></div>},
+ 
 ];
 
-const UploadChapterModal: React.FC<UploadChapterModalProps> = ({
+const UploadChapter: React.FC<UploadChapterModalProps> = ({
   open,
   onClose,
   chapterTitle,
@@ -110,4 +113,4 @@ const UploadChapterModal: React.FC<UploadChapterModalProps> = ({
   );
 };
 
-export default UploadChapterModal;
+export default UploadChapter;

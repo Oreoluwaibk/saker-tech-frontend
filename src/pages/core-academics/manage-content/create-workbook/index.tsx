@@ -1,91 +1,78 @@
-import DashboardContainer from '@/components/dashboard/DashboardContainer'
-import { AlignCenterOutlined, DeleteFilled, EditOutlined, EyeOutlined, LoadingOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons'
-import { Button, Card, Input, Select, Table } from 'antd'
 import React, { useState } from 'react';
+import { Button, Card, Input, Select, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import { SearchOutlined, EyeOutlined, EditOutlined } from '@ant-design/icons';
+
+import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import WorkStudentDetail from '@/components/modals/WorkStudentDetail';
 import EditWorkBook from '@/components/modals/EditWorkbook';
 import CreateWorkbook from '@/components/modals/CreateWorkbook';
 
-const Option = Select.Option;
-const index = () => {
+const index: React.FC = () => {
   const [workbookData] = useState([
-  {
-    key: '1',
-    workbook_name: 'Hw',
-    board: 'CBSE',
-    class: 'Class III',
-    subject: 'English',
-    chapter: 'Everyday Things',
-    created_on: '2025-06-17 12:33:12',
-  },
-  {
-    key: '2',
-    workbook_name: 'WB1',
-    board: 'CBSE',
-    class: 'Class II',
-    subject: 'English',
-    chapter: 'If You Are Happy',
-    created_on: '2024-12-09 12:36:49',
-  },
-  {
-    key: '3',
-    workbook_name: 'Workbook123',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'The First Butterflies',
-    created_on: '2024-07-24 17:31:22',
-  },
-  {
-    key: '4',
-    workbook_name: 'Worksheet Excel 1',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'Myself',
-    created_on: '2024-07-24 17:31:22',
-  },
-  {
-    key: '5',
-    workbook_name: 'WB 1. 1',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'Indus Valley Civilisation',
-    created_on: '2023-07-13 17:13:20',
-  },
-]);
-   const [open, setOpen] = useState({
-     details: false,
-     edit:false,
-     create: false,
-   });
+    {
+      key: '1',
+      workbook_name: 'Hw',
+      board: 'CBSE',
+      class: 'Class III',
+      subject: 'English',
+      chapter: 'Everyday Things',
+      created_on: '2025-06-17 12:33:12',
+    },
+    {
+      key: '2',
+      workbook_name: 'WB1',
+      board: 'CBSE',
+      class: 'Class II',
+      subject: 'English',
+      chapter: 'If You Are Happy',
+      created_on: '2024-12-09 12:36:49',
+    },
+    {
+      key: '3',
+      workbook_name: 'Workbook123',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'The First Butterflies',
+      created_on: '2024-07-24 17:31:22',
+    },
+    {
+      key: '4',
+      workbook_name: 'Worksheet Excel 1',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'Myself',
+      created_on: '2024-07-24 17:31:22',
+    },
+    {
+      key: '5',
+      workbook_name: 'WB 1. 1',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'Indus Valley Civilisation',
+      created_on: '2023-07-13 17:13:20',
+    },
+  ]);
 
-   const handleDetailModal = (open:boolean) =>{
-      setOpen({
-         details: open,
-         edit: false,
-         create: false,
-      });
-   }
-   const handleEditModal = (open:boolean) =>{
-      setOpen({
-         details: false,
-         edit: open,
-         create: false
-      });
-   }
-   const handleCreateModal = (open:boolean) =>{
-      setOpen({
-         details: false,
-         edit: false,
-         create: open
-      });
-   }
-   
-   
-  const workbookColumn:ColumnsType = [
+  const [open, setOpen] = useState({
+    details: false,
+    edit: false,
+    create: false,
+  });
+
+  const handleModalToggle = (type: 'details' | 'edit' | 'create', state: boolean) => {
+    setOpen({
+      details: false,
+      edit: false,
+      create: false,
+      [type]: state,
+    });
+  };
+
+  const workbookColumns: ColumnsType = [
     {
       key: '1',
       title: 'S/N',
@@ -120,16 +107,16 @@ const index = () => {
     {
       key: '7',
       title: 'Created On',
-      dataIndex: 'chapter',
+      dataIndex: 'created_on',
     },
-       {
+    {
       key: '8',
       title: 'Action',
       dataIndex: 'action',
       render: () => (
         <div className="flex gap-2">
-            <Button
-           onClick={()=>handleDetailModal(true)}
+          <Button
+            onClick={() => handleModalToggle('details', true)}
             style={{
               border: 'none',
               padding: '2px',
@@ -137,10 +124,10 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <EyeOutlined/>
+            <EyeOutlined />
           </Button>
           <Button
-            onClick={()=>handleEditModal(true)}
+            onClick={() => handleModalToggle('edit', true)}
             style={{
               border: 'none',
               padding: '2px',
@@ -148,9 +135,8 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <EditOutlined/>
+            <EditOutlined />
           </Button>
-          
         </div>
       ),
     },
@@ -175,7 +161,13 @@ const index = () => {
           </div>
         }
         extra={
-        <Button onClick={()=>handleCreateModal(true)} className='!text-black' type='primary'>Create WorkBook</Button>
+          <Button
+            onClick={() => handleModalToggle('create', true)}
+            className="!text-black"
+            type="primary"
+          >
+            Create WorkBook
+          </Button>
         }
       >
         <Card
@@ -192,14 +184,15 @@ const index = () => {
             />
           }
         >
-          <Table columns={workbookColumn} dataSource={workbookData} />
+          <Table columns={workbookColumns} dataSource={workbookData} />
         </Card>
       </Card>
-      <CreateWorkbook open={open.create} onCancel={handleDetailModal} />
-      <WorkStudentDetail open={open.details} onCancel={handleDetailModal}/>
-      <EditWorkBook open={open.edit} onCancel={handleEditModal}/>
+
+      <CreateWorkbook open={open.create} onCancel={() => handleModalToggle('create', false)} />
+      <WorkStudentDetail open={open.details} onCancel={() => handleModalToggle('details', false)} />
+      <EditWorkBook open={open.edit} onCancel={() => handleModalToggle('edit', false)} />
     </DashboardContainer>
   );
-}
+};
 
-export default index
+export default index;

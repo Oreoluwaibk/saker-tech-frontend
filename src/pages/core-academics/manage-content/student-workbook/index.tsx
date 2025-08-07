@@ -1,80 +1,75 @@
-import DashboardContainer from '@/components/dashboard/DashboardContainer'
-import { AlignCenterOutlined, DeleteFilled, EditOutlined, EyeOutlined, LoadingOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons'
-import { Button, Card, Input, Select, Table } from 'antd'
 import React, { useState } from 'react';
+import DashboardContainer from '@/components/dashboard/DashboardContainer';
+import { EyeOutlined, SearchOutlined } from '@ant-design/icons';
+import { Button, Card, Input, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import WorkStudentDetail from '@/components/modals/WorkStudentDetail';
 import EditWorkBook from '@/components/modals/EditWorkbook';
 import StudentWorkBookResult from '@/components/modals/Result';
 
-const Option = Select.Option;
 const index = () => {
   const [workbookData] = useState([
-  {
-    key: '1',
-    workbook_name: 'Hw',
-    board: 'CBSE',
-    class: 'Class III',
-    subject: 'English',
-    chapter: 'Everyday Things',
-    created_on: '2025-06-17 12:33:12',
-  },
-  {
-    key: '2',
-    workbook_name: 'WB1',
-    board: 'CBSE',
-    class: 'Class II',
-    subject: 'English',
-    chapter: 'If You Are Happy',
-    created_on: '2024-12-09 12:36:49',
-  },
-  {
-    key: '3',
-    workbook_name: 'Workbook123',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'The First Butterflies',
-    created_on: '2024-07-24 17:31:22',
-  },
-  {
-    key: '4',
-    workbook_name: 'Worksheet Excel 1',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'Myself',
-    created_on: '2024-07-24 17:31:22',
-  },
-  {
-    key: '5',
-    workbook_name: 'WB 1. 1',
-    board: 'CBSE',
-    class: 'Class I',
-    subject: 'Mathematics',
-    chapter: 'Indus Valley Civilisation',
-    created_on: '2023-07-13 17:13:20',
-  },
-]);
-   const [open, setOpen] = useState({
-     details: false,
-     edit:false
-   });
+    {
+      key: '1',
+      workbook_name: 'Hw',
+      board: 'CBSE',
+      class: 'Class III',
+      subject: 'English',
+      chapter: 'Everyday Things',
+      created_on: '2025-06-17 12:33:12',
+    },
+    {
+      key: '2',
+      workbook_name: 'WB1',
+      board: 'CBSE',
+      class: 'Class II',
+      subject: 'English',
+      chapter: 'If You Are Happy',
+      created_on: '2024-12-09 12:36:49',
+    },
+    {
+      key: '3',
+      workbook_name: 'Workbook123',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'The First Butterflies',
+      created_on: '2024-07-24 17:31:22',
+    },
+    {
+      key: '4',
+      workbook_name: 'Worksheet Excel 1',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'Myself',
+      created_on: '2024-07-24 17:31:22',
+    },
+    {
+      key: '5',
+      workbook_name: 'WB 1. 1',
+      board: 'CBSE',
+      class: 'Class I',
+      subject: 'Mathematics',
+      chapter: 'Indus Valley Civilisation',
+      created_on: '2023-07-13 17:13:20',
+    },
+  ]);
 
-   const handleDetailModal = (open:boolean) =>{
-      setOpen({
-         details: open,
-         edit: false
-      });
-   }
-   const handleEditModal = (open:boolean) =>{
-      setOpen({
-         details: false,
-         edit: open
-      });
-   }
-   
-  const workbookColumn:ColumnsType = [
+  const [open, setOpen] = useState({
+    details: false,
+    edit: false,
+  });
+
+  const handleDetailModal = (open: boolean) => {
+    setOpen({ details: open, edit: false });
+  };
+
+  const handleEditModal = (open: boolean) => {
+    setOpen({ details: false, edit: open });
+  };
+
+  const workbookColumns: ColumnsType = [
     {
       key: '1',
       title: 'S/N',
@@ -109,33 +104,35 @@ const index = () => {
     {
       key: '7',
       title: 'Created On',
-      dataIndex: 'chapter',
+      dataIndex: 'created_on',
     },
-       {
+    {
       key: '8',
       title: 'Action',
       dataIndex: 'action',
       render: () => (
         <div className="flex gap-2">
-            <Button
-          onClick={()=>handleEditModal(true)} 
+          <Button
+            onClick={() => handleEditModal(true)}
             style={{
               border: 'none',
               padding: '2px',
               background: 'transparent',
               boxShadow: 'none',
             }}
+            title="Student Details"
           >
-            <EyeOutlined/>
+            <EyeOutlined />
           </Button>
           <Button
-           onClick={()=>handleDetailModal(true)}
+            onClick={() => handleDetailModal(true)}
             style={{
               border: 'none',
-              padding: '2px',
+              padding: '2px 8px',
               background: 'transparent',
               boxShadow: 'none',
             }}
+            title="Result"
           >
             Result
           </Button>
@@ -175,13 +172,14 @@ const index = () => {
             />
           }
         >
-          <Table columns={workbookColumn} dataSource={workbookData} />
+          <Table columns={workbookColumns} dataSource={workbookData} />
         </Card>
       </Card>
-      <WorkStudentDetail open={open.edit} onCancel={handleEditModal}/>
-      <StudentWorkBookResult open={open.details} onCancel={handleDetailModal}/>
+
+      <WorkStudentDetail open={open.edit} onCancel={handleEditModal} />
+      <StudentWorkBookResult open={open.details} onCancel={handleDetailModal} />
     </DashboardContainer>
   );
-}
+};
 
-export default index
+export default index;
