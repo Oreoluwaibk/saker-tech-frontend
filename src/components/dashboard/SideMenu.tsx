@@ -115,7 +115,7 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
                         { key: '10.4', label: 'Student Work Book', icon: <Image src={Course} alt="Courses" width={20} height={20} />,  },
                     ],
                 },
-                { key: 'timeiable', label: 'Time Table', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: 'timetable', label: 'Class Timetable', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
             ],
         },
         {
@@ -240,6 +240,12 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "4.9")  router.push("/core-academics/manage-master/manage-category");
         if(value.key === "5.0")  router.push("/core-academics/manage-master/manage-subcategory");
         if(value.key === "5.1")  router.push("/core-academics/manage-master/manage-level");
+        if(value.key === "10.0")  router.push("/core-academics/manage-content/create-content");
+        if(value.key === "10.1")  router.push("/core-academics/manage-content/create-workbook");
+        if(value.key === "10.2")  router.push("/core-academics/manage-content/draft-workbooklist");
+        if(value.key === "10.3")  router.push("/core-academics/manage-content/publish-workbook");
+        if(value.key === "10.4")  router.push("/core-academics/manage-content/student-workbook");
+        if(value.key === "timetable")  router.push("/core-academics/class-timetable");
         if(value.key === "11.0")  router.push("/staff-management/role-management/employee-list");
         if(value.key === "11.1")  router.push("/staff-management/role-management/assign-menu");
         if(value.key === "11.2")  router.push("/staff-management/human-resources/leave-type");

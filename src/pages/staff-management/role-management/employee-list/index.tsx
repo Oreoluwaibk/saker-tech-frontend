@@ -1,7 +1,7 @@
 import DashboardContainer from '@/components/dashboard/DashboardContainer'
 import React from 'react';
 import { Button, Card, Input, Select, Switch, Table } from 'antd';
-import { AlignCenterOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons'
+import { AlignCenterOutlined, EditOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
 import { Edit } from '../../../../../assets/icons';
@@ -177,7 +177,7 @@ const index = () => {
                 return (
                     <div className='flex items-center gap-2'>
                         <Button style={{ border: 'none', padding: '2px', background: 'transparent', boxShadow: 'none' }}>
-                            <Image src={Edit} alt='' />
+                          <EditOutlined/> 
                         </Button>
 
                         <span className={`p-1 px-2 rounded-xl font-bold ${value ? 'bg-[#FED500]/20 text-[#FED500]' : 'bg-[#F6F6F6] text-black'}  `}>{value ? 'Active' : 'Inactive'}</span>
