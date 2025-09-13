@@ -5,14 +5,18 @@ import { Card, Input, Select, Table } from 'antd';
 import { AlignCenterOutlined, SearchOutlined } from '@ant-design/icons';
 
 interface TablecardProps {
-    name: string;
-    activeKey: string;
-    title: string;
-    description: string;
-    extra: ReactNode;
-    column: ColumnsType;
-    dataSource: any;
-    showFilter?: boolean;
+  name: string;
+  activeKey: string;
+  title: string;
+  description: string;
+  extra: ReactNode;
+  column: ColumnsType;
+  dataSource: any;
+  showFilter?: boolean;
+  titleFilter?: ReactNode;
+  subtitle?: string;
+  notTable?: boolean;
+  field?: ReactNode;
 }
 
 const Option = Select.Option;
@@ -24,7 +28,11 @@ const TableCards = ({
   extra,
   column,
   dataSource,
-  showFilter
+  showFilter,
+  titleFilter,
+  subtitle,
+  notTable,
+  field
 }: TablecardProps) => {
   const tabBarExtras = (
     <div className="flex items-center gap-4 py-4">
@@ -48,13 +56,16 @@ const TableCards = ({
         title={<div className='pt-5 pb-3 px-4'>
           <p className='text-[30px] text-[#050505] font-semibold'>{title}</p>
           <p className='text-base text-[#616161] font-light'>{description}</p>
+          {titleFilter}
         </div>}
         extra={extra}
       >
-        <Card variant="outlined" extra={tabBarExtras}>
-          <Table 
+        <Card variant="outlined" extra={!notTable && tabBarExtras} title={titleFilter &&<p className='text-[24px] text-[#050505] font-semibold'>{subtitle}</p>}>
+          {!notTable && <Table 
             columns={column}
             dataSource={dataSource}
+            style={{ overflowX: "scroll"}}
+            className='table-display'
             // locale={{
             //     emptyText: () => (
             //         <EmptyComponent 
@@ -67,7 +78,8 @@ const TableCards = ({
             //         />
             //     )
             // }}
-          />
+          />}
+          {notTable && field}
         </Card>
       </Card>
     </DashboardContainer>

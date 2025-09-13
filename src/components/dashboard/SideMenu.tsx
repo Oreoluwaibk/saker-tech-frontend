@@ -240,6 +240,32 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "4.9")  router.push("/core-academics/manage-master/manage-category");
         if(value.key === "5.0")  router.push("/core-academics/manage-master/manage-subcategory");
         if(value.key === "5.1")  router.push("/core-academics/manage-master/manage-level");
+
+        if(value.key === "6.0")  router.push("/core-academics/manage-registration/manage-staff");
+        if(value.key === "6.1")  router.push("/core-academics/manage-registration/manage-student");
+        if(value.key === "6.2")  router.push("/core-academics/manage-registration/manage-student-amenities");
+        if(value.key === "6.3")  router.push("/core-academics/manage-registration/manage-unapproved-student");
+        if(value.key === "6.4")  router.push("/core-academics/manage-registration/student-birthday-list");
+        if(value.key === "6.5")  router.push("/core-academics/manage-registration/bulk-promotion");
+        if(value.key === "6.6")  router.push("/core-academics/manage-registration/manage-teacher-amenitites");
+        if(value.key === "6.7")  router.push("/core-academics/manage-registration/manage-parent");
+        if(value.key === "6.8")  router.push("/core-academics/manage-registration/manage-coordinator");
+        if(value.key === "6.9")  router.push("/core-academics/manage-registration/coordinator-student-management");
+        if(value.key === "7.0")  router.push("/core-academics/manage-registration/student-withdrawal");
+        if(value.key === "7.1")  router.push("/core-academics/manage-registration/group-subject-mapping");
+
+        if(value.key === "8.0")  router.push("/core-academics/manage-question/create-question-bank");
+        if(value.key === "8.1")  router.push("/core-academics/manage-question/draft-question-bank");
+        if(value.key === "8.2")  router.push("/core-academics/manage-question/published-question-bank");
+        if(value.key === "8.3")  router.push("/core-academics/manage-question/download-upload-excel");
+        if(value.key === "8.4")  router.push("/core-academics/manage-question/upload-images");
+
+        if(value.key === "9.0")  router.push("/core-academics/manage-assessment/create-assessment");
+        if(value.key === "9.1")  router.push("/core-academics/manage-assessment/draft-assessment");
+        if(value.key === "9.2")  router.push("/core-academics/manage-assessment/published-assessment");
+        if(value.key === "9.3")  router.push("/core-academics/manage-assessment/missed-assessment");
+        if(value.key === "9.4")  router.push("/core-academics/manage-assessment/published-level");
+
         if(value.key === "11.0")  router.push("/staff-management/role-management/employee-list");
         if(value.key === "11.1")  router.push("/staff-management/role-management/assign-menu");
         if(value.key === "11.2")  router.push("/staff-management/human-resources/leave-type");

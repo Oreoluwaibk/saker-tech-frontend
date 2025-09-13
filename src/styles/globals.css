@@ -34,9 +34,17 @@ body {
   background-color: #FED500 !important;
 }
 
+.white_style .ant-select-selector{
+  background-color: #f4f4f4 !important;
+}
+
 .ant-menu-submenu-selected>.ant-menu-submenu-title {
   background-color: #FED500 !important;
   color: #2E2E2E !important;
+}
+
+.table-display::-webkit-scrollbar {
+  display: none;
 }
 
 
