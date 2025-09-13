@@ -115,7 +115,7 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
                         { key: '10.4', label: 'Student Work Book', icon: <Image src={Course} alt="Courses" width={20} height={20} />,  },
                     ],
                 },
-                { key: 'timeiable', label: 'Time Table', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: 'timetable', label: 'Class Timetable', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
             ],
         },
         {
@@ -162,7 +162,6 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         {
             label: "Financial Management",
             key: "Financial Management",
-            icon: <Image src={Analytics} alt="Analytics" width={20} height={20} />,
              children: [
                 { key: '19', label: 'Expenses', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
                 { key: '20', label: 'Income', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
@@ -176,10 +175,23 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             children: [
                 { key: '22', label: 'Manage Holiday', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
                 { key: '23', label: 'Events', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '24', label: 'Manage Notice Board', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '25', label: 'Manage Summer Camp', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '24', label: 'Manage Notice Board', icon: <Image src={Course} alt="Courses" width={20} height={20} />,
+                children:[
+                    { key: '24.1', label: 'Notice Board List', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                    { key: '24.2', label: 'Notice Viewed By Student', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                ]
+            },
+                { key: '25', label: 'Manage Summer Camp', icon: <Image src={Course} alt="Courses" width={20} height={20} />,children:[
+                   { key: '25.1', label: 'Manange Student', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                   { key: '25.2', label: 'Create Batch', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                   { key: '25.3', label: 'Time Table', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                ] },
                  { key: '26', label: 'Music Upload', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '27', label: 'Message Center', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '27', label: 'Message Center', icon: <Image src={Course} alt="Courses" width={20} height={20} />,children:[
+                   { key: '27.1', label: 'Template List', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },   
+                   { key: '27.2', label: 'Whatsapp Message Center', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },   
+                   { key: '27.3', label: 'Whatsapp Default Message', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },   
+                ] },
             ]
         },
         {
@@ -187,9 +199,33 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             key: "Student Administration",
             icon: <Image src={Certificate} alt="Certificates" width={20} height={20} />,
             children: [
-                { key: '28', label: 'Manage Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '29', label: 'Manage Attendance', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '30', label: 'Manage Report Card', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '28', label: 'Manage Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                children:[
+                  { key: '28.1', label: 'Create Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                   {key: '28.2', label: 'Draft Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                   {key: '28.3', label: 'Published Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                   {key: '28.4', label: 'Submitted Assignment', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                ]
+            },
+                { key: '29', label: 'Manage Attendance', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                children:[
+                 { key: '29.1', label: 'Attendance Details', icon: <Image src={Course} alt="Courses" width={20} height={20} />},   
+                 { key: '29.2', label: 'Attendance Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},   
+                 { key: '29.3', label: 'Attendance Sync', icon: <Image src={Course} alt="Courses" width={20} height={20} />},   
+                 { key: '29.4', label: 'Student Attendance Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},   
+                ]
+            },
+                { key: '30', label: 'Manage Report Card', icon: <Image src={Course} alt="Courses" width={20} height={20} />,
+                children:[
+                   { key: '30.1', label: 'Generate Grade', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.2', label: 'Grade Remark List', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.3', label: 'Map Core and Extra Subject', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.4', label: 'Report Card List', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.5', label: 'Student Attendance Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.6', label: 'Upload Core Student Mark', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                   { key: '30.7', label: 'Upload Extra Student Grade', icon: <Image src={Course} alt="Courses" width={20} height={20} />},    
+                ]
+            },
             ]
         },
         {
@@ -266,6 +302,12 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "9.3")  router.push("/core-academics/manage-assessment/missed-assessment");
         if(value.key === "9.4")  router.push("/core-academics/manage-assessment/published-level");
 
+        if(value.key === "10.0")  router.push("/core-academics/manage-content/create-content");
+        if(value.key === "10.1")  router.push("/core-academics/manage-content/create-workbook");
+        if(value.key === "10.2")  router.push("/core-academics/manage-content/draft-workbooklist");
+        if(value.key === "10.3")  router.push("/core-academics/manage-content/publish-workbook");
+        if(value.key === "10.4")  router.push("/core-academics/manage-content/student-workbook");
+        if(value.key === "timetable")  router.push("/core-academics/class-timetable");
         if(value.key === "11.0")  router.push("/staff-management/role-management/employee-list");
         if(value.key === "11.1")  router.push("/staff-management/role-management/assign-menu");
         if(value.key === "11.2")  router.push("/staff-management/human-resources/leave-type");
@@ -276,6 +318,33 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "11.7")  router.push("/staff-management/manage-leaves/approve-student-leaves");
         if(value.key === "11.8")  router.push("/staff-management/manage-leaves/approved-employee-leaves");
         if(value.key === "11.9")  router.push("/staff-management/manage-leaves/disapproved-employee-leaves");
+        if(value.key === "22")  router.push("/student-engagement/manage-holiday");
+        if(value.key === "23")  router.push("/student-engagement/events");
+        if(value.key === "24.1")  router.push("/student-engagement/manage-noticeboard/notice-board-list");
+        if(value.key === "24.2")  router.push("/student-engagement/manage-noticeboard/notice-viewed-student");
+        if(value.key === "25.1")  router.push("/student-engagement/manage-summer-camp/manage-student");
+        if(value.key === "25.2")  router.push("/student-engagement/manage-summer-camp/create-batch");
+        if(value.key === "25.3")  router.push("/student-engagement/manage-summer-camp/time-table");
+        if(value.key === "26")  router.push("/student-engagement/music-upload");
+        if(value.key === "27.1")  router.push("/student-engagement/message-center/template-list");
+        if(value.key === "27.2")  router.push("/student-engagement/message-center/whatsapp-message-center");
+        if(value.key === "27.3")  router.push("/student-engagement/message-center/whatsapp-default-message");
+        if(value.key === "28.1")  router.push("/student-adminstration/manage-assignment/create-assignment");
+        if(value.key === "28.2")  router.push("/student-adminstration/manage-assignment/draft-assignment");
+        if(value.key === "28.3")  router.push("/student-adminstration/manage-assignment/published-assignment");
+        if(value.key === "28.4")  router.push("/student-adminstration/manage-assignment/submitted-assignment");
+        if(value.key === "29.1")  router.push("/student-adminstration/manage-attendance/attendance-details");
+        if(value.key === "29.2")  router.push("/student-adminstration/manage-attendance/attendance-report");
+        if(value.key === "29.3")  router.push("/student-adminstration/manage-attendance/attendance-sync");
+        if(value.key === "29.4")  router.push("/student-adminstration/manage-attendance/student-attendance-report");
+        if(value.key === "30.1")  router.push("/student-adminstration/manage-reportcard/generate-grade");
+        if(value.key === "30.2")  router.push("/student-adminstration/manage-reportcard/grade-remark-list");
+        if(value.key === "30.3")  router.push("/student-adminstration/manage-reportcard/map-core-extra-subject");
+        if(value.key === "30.4")  router.push("/student-adminstration/manage-reportcard/reportcard-list");
+        if(value.key === "30.5")  router.push("/student-adminstration/manage-reportcard/student-attendance-report");
+        if(value.key === "30.6")  router.push("/student-adminstration/manage-reportcard/upload-core-student-mark");
+        if(value.key === "30.7")  router.push("/student-adminstration/manage-reportcard/upload-extra-student-grade");
+    
         if(value.key === "Students")  router.push("/students");
         if(value.key === "Wallet")  router.push("/wallet");
         if(value.key === "Analytics")  router.push("/analytics");

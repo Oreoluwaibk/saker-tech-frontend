@@ -1,51 +1,44 @@
 import React, { useState } from 'react';
 import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import { Card, Button, Input, Table } from 'antd';
-import { DownloadOutlined, EyeOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons';
+import { EditFilled, PlusOutlined, SearchOutlined, DeleteFilled } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import Image from 'next/image';
 import { Eye, Download } from '../../../../../assets/icons';
 
-const index = () => {
-  const [leavesDataSource] = useState([
+interface AssignmentRecord {
+  key: number;
+  name: string;
+  class: string;
+  subject: string;
+  topic: string;
+  createdOn: string;
+  createdBy: string;
+}
+
+const Index = () => {
+  const [assignmentsDataSource] = useState<AssignmentRecord[]>([
     {
       key: 1,
-      staff: 'Math Teacher',
-      leaveDate: '2025-01-16',
-      applyDate: '2024-12-31',
-      status: 'pending',
+      name: 'Math Assignment 1',
+      class: 'SS1',
+      subject: 'Mathematics',
+      topic: 'Algebra',
+      createdOn: '2025-01-16',
+      createdBy: 'SuperAdmin',
     },
     {
       key: 2,
-      staff: 'School Counselor',
-      leaveDate: '2025-01-18',
-      applyDate: '2025-01-02',
-      status: 'pending',
-    },
-    {
-      key: 3,
-      staff: 'Librarian',
-      leaveDate: '2025-01-20',
-      applyDate: '2025-01-03',
-      status: 'pending',
-    },
-    {
-      key: 4,
-      staff: 'Science Lab Assistant',
-      leaveDate: '2025-01-22',
-      applyDate: '2025-01-05',
-      status: 'pending',
-    },
-    {
-      key: 5,
-      staff: 'Vice Principal',
-      leaveDate: '2025-01-25',
-      applyDate: '2025-01-06',
-      status: 'pending',
+      name: 'English Essay',
+      class: 'SS2',
+      subject: 'English',
+      topic: 'Narrative Writing',
+      createdOn: '2025-01-20',
+      createdBy: 'SuperAdmin',
     },
   ]);
 
-  const LeavesColumn: ColumnsType = [
+  const AssignmentListColumn: ColumnsType<AssignmentRecord> = [
     {
       key: '1',
       title: 'S/N',
@@ -54,49 +47,69 @@ const index = () => {
     },
     {
       key: '2',
-      title: 'Staff',
-      dataIndex: 'staff',
+      title: 'Assignment Name',
+      dataIndex: 'name',
     },
     {
       key: '3',
-      title: 'Status',
-      dataIndex: 'status',
+      title: 'Class',
+      dataIndex: 'class',
     },
     {
       key: '4',
-      title: 'Leave Date',
-      dataIndex: 'leaveDate',
+      title: 'Subject',
+      dataIndex: 'subject',
     },
     {
       key: '5',
-      title: 'Apply Date',
-      dataIndex: 'applyDate',
+      title: 'Topic',
+      dataIndex: 'topic',
     },
     {
       key: '6',
+      title: 'Created On',
+      dataIndex: 'createdOn',
+    },
+    {
+      key: '7',
+      title: 'Created By',
+      dataIndex: 'createdBy',
+    }, 
+    {
+      key: '9',
       title: 'Action',
       dataIndex: 'action',
       render: () => (
         <div className="flex gap-2">
           <Button
-            style={{
+          style={{
               border: 'none',
-              padding: '2px',
+              padding: 2,
               background: 'transparent',
               boxShadow: 'none',
             }}
           >
-            <EyeOutlined/>
+            <EditFilled/>
           </Button>
           <Button
             style={{
               border: 'none',
-              padding: '2px',
+              padding: 2,
               background: 'transparent',
               boxShadow: 'none',
             }}
           >
-           <DownloadOutlined/> 
+            <Image src={Eye} alt="view" />
+          </Button>
+          <Button
+            style={{
+              border: 'none',
+              padding: 2,
+              background: 'transparent',
+              boxShadow: 'none',
+            }}
+          >
+            <DeleteFilled/>
           </Button>
         </div>
       ),
@@ -104,7 +117,7 @@ const index = () => {
   ];
 
   return (
-    <DashboardContainer name="Manage Leaves" activeKey="11.3">
+    <DashboardContainer name="Manage Assignment" activeKey="28.1">
       <Card
         variant="borderless"
         styles={{
@@ -114,9 +127,9 @@ const index = () => {
         title={
           <div className="pt-5 pb-3 px-4 flex gap-3 flex-col">
             <div>
-              <p className="text-[30px] text-[#050505] font-semibold">Approve Leaves List</p>
+              <p className="text-[30px] text-[#050505] font-semibold">Assignment List</p>
               <p className="text-base text-[#616161] font-light">
-                Manage and track lists of leaves
+                Manage and track lists of Assignments
               </p>
             </div>
           </div>
@@ -127,7 +140,7 @@ const index = () => {
             className="!h-[54px] !w-[160px] !text-[#3E444C] !rounded-[5px] !font-semibold"
             icon={<PlusOutlined />}
           >
-            Add Leave Request
+            Create Assignment
           </Button>
         }
       >
@@ -145,11 +158,16 @@ const index = () => {
             />
           }
         >
-          <Table columns={LeavesColumn} dataSource={leavesDataSource} />
+          <Table
+            rowKey="key"
+            columns={AssignmentListColumn}
+            dataSource={assignmentsDataSource}
+            pagination={{ pageSize: 5 }}
+          />
         </Card>
       </Card>
     </DashboardContainer>
   );
 };
 
-export default index;
+export default Index;

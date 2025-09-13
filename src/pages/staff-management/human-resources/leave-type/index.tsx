@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import { Card, Button, Input, Table } from 'antd';
-import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
+import { DeleteFilled, EditOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import Image from 'next/image';
 import { Delete, Edit } from '../../../../../assets/icons';
@@ -40,7 +40,7 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <Image src={Edit} alt="edit" />
+           <EditOutlined/> 
           </Button>
           <Button
             style={{
@@ -50,7 +50,7 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <Image src={Delete} alt="delete" />
+            <DeleteFilled/>
           </Button>
         </div>
       ),
