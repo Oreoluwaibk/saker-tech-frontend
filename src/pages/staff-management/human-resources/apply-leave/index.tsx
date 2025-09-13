@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import { Card, Button, Input, Table } from 'antd';
-import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
+import { PlusOutlined, SearchOutlined,AlignCenterOutlined, DeleteFilled, EditOutlined, EyeOutlined, LoadingOutlined, DownloadOutlined, } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
-import Image from 'next/image';
-import { Eye, Download } from '../../../../../assets/icons';
+
 
 interface LeaveRecord {
   key: number;
@@ -69,7 +68,7 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <Image src={Eye} alt="view" />
+           <EyeOutlined/>
           </Button>
           <Button
             style={{
@@ -79,7 +78,7 @@ const index = () => {
               boxShadow: 'none',
             }}
           >
-            <Image src={Download} alt="download" />
+            <DownloadOutlined/>
           </Button>
         </div>
       ),

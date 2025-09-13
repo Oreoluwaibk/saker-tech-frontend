@@ -25,3 +25,4 @@ export { default as Edit } from "./edit.svg";
 export { default as Download } from "./download.svg";
 export { default as Eye } from "./eye.svg";
 export { default as Delete } from "./delete.svg";
+export { default as Media } from "./Media.svg"
