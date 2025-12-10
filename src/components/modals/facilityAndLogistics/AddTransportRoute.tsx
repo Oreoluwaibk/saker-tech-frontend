@@ -1,0 +1,49 @@
+import { CloseCircleOutlined } from '@ant-design/icons'
+import { Button, Col, DatePicker, Form, Input, InputNumber, Modal, Row, Select } from 'antd'
+import React from 'react'
+
+interface modal {
+    open: boolean;
+    onCancel: () => void;
+}
+const FormItem = Form.Item;
+
+const AddTransportRoute = ({ open, onCancel }: modal) => {
+  return (
+     <Modal 
+        title={<p className='text-lg font-medium'>Add Transport Route</p>}
+        open={open}
+        onCancel={onCancel}
+        closeIcon={<CloseCircleOutlined />}
+        footer={<Button type="primary" className='!text-[#3E444C] !font-bold' style={{height: 48, minWidth: 107, borderRadius: 5}}>Submit</Button>}
+        width={900}
+        styles={{body: {marginTop: 20}}}
+    >
+        <Form layout="vertical">
+            <Row gutter={[15, 0]}>
+                
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Route Title" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Input 
+
+                        />
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Fare" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <InputNumber 
+                            min={0}
+                            style={{width: "100%"}}
+                        />
+                    </FormItem>
+                </Col>
+
+               
+            </Row>
+        </Form>
+    </Modal>
+  )
+}
+
+export default AddTransportRoute

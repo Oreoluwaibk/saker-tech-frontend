@@ -153,19 +153,64 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             key: "Facilities & Logistics",
             icon: <Image src={Wallet} alt="Wallet" width={20} height={20} />,
             children: [
-                { key: '15', label: 'Transport', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '16', label: 'Mass Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '17', label: 'Hostel', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '18', label: 'Inventory', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '15', label: 'Transport', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '15.1', label: 'Transport Route', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '15.2', label: 'Add Vechile', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '15.3', label: 'Assign Vechile', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                    ]
+                },
+                { key: '16', label: 'Mass Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '16.1', label: 'Add Meal', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '16.2', label: 'Meal Schedule', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                    ]
+                },
+                { key: '17', label: 'Hostel', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '17.1', label: 'Hostel', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '17.2', label: 'Room Type', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '17.3', label: 'Hostel Room', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                    ]
+                },
+                { key: '18', label: 'Inventory', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '18.1', label: 'Issue Item', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '18.2', label: 'Add Item Stock', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '18.3', label: 'Add Item', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },
+                        { key: '18.4', label: 'Item Category', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '18.5', label: 'Item Store', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '18.6', label: 'Item Supplier', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                    ]
+                },
             ]
         },
         {
             label: "Financial Management",
             key: "Financial Management",
-             children: [
-                { key: '19', label: 'Expenses', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '20', label: 'Income', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '21', label: 'Manage Fees', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+            icon: <Image src={Certificate} alt="Certificates" width={20} height={20} />,
+            children: [
+                { key: '19', label: 'Expenses', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '19.1', label: 'Add Expense', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '19.2', label: 'Expense Type', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                    ]
+                },
+                { key: '20', label: 'Income', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '20.1', label: 'Add Income', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '20.2', label: 'Income Type', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                    ]
+                },
+                { key: '21', label: 'Manage Fees', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '21.1', label: 'Master Fee', icon: <Image src={Course} alt="Courses" width={20} height={20} /> }, 
+                        { key: '21.2', label: 'concession Fee', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },
+                        { key: '21.3', label: 'Generate Fee and Payment', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },
+                        { key: '21.4', label: 'Generate Extra Fee', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },
+                        { key: '21.5', label: 'Fee Transaction', icon: <Image src={Course} alt="Courses" width={20} height={20} /> },  
+                    ]
+                },
             ]
         },
         {
@@ -233,7 +278,12 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             key: "Admission & Enrollment",
             icon: <Image src={Certificate} alt="Certificates" width={20} height={20} />,
             children: [
-                { key: '31', label: 'Lead Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '31', label: 'Lead Management', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                children:[
+                    { key: '31.1', label: 'Pending Leads', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '31.2', label: 'Assigned Leads', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                ]
+                },
             ]
         },
         {
@@ -241,16 +291,51 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
             key: "Exam & Evaluation",
             icon: <Image src={Certificate} alt="Certificates" width={20} height={20} />,
             children: [
-                { key: '32', label: 'Manage Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '32', label: 'Manage Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                children:[
+                    { key: '32.1', label: 'Missed Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.2', label: 'Exam Type List', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.3', label: 'Create Question Bank', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.4', label: 'Draft Questions', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.5', label: 'Verified Question Bank', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.6', label: 'Download & Upload Excel', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.7', label: 'Create Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.8', label: 'Draft Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    {key: '32.9', label: 'Published Examination', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                ]
+                },
             ]
         },
         {
             label: "Comms & Reporting",
             key: "Comms & Reporting",
             icon: <Image src={Certificate} alt="Certificates" width={20} height={20} />,
+            // children: [
+            //     { key: '33', label: 'Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+            //     { key: '34', label: 'Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+            // ],
             children: [
-                { key: '33', label: 'Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
-                { key: '34', label: 'Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />, },
+                { key: '33', label: 'Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '33.1', label: 'Staff & Coordinator Attendance Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.2', label: 'Student Attendance Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.3', label: 'Student Fee Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.4', label: 'Registered Reports', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.5', label: 'Class Strength Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.6', label: 'Sibling Student Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.7', label: 'Student Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.8', label: 'Student Fee Concession Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '33.9', label: 'Student Fee Waiver Report', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    ]
+                },
+                { key: '34', label: 'Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />, 
+                    children:[
+                        { key: '34.1', label: 'Bonafide Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '34.2', label: 'Transfer Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '34.3', label: 'Fee Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                        {key: '34.4', label: 'Generate Transfer Certificate', icon: <Image src={Course} alt="Courses" width={20} height={20} />},  
+                    ]
+                },
             ]
         },
     ];
@@ -318,6 +403,37 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "11.7")  router.push("/staff-management/manage-leaves/approve-student-leaves");
         if(value.key === "11.8")  router.push("/staff-management/manage-leaves/approved-employee-leaves");
         if(value.key === "11.9")  router.push("/staff-management/manage-leaves/disapproved-employee-leaves");
+
+        if(value.key === "15.1")  router.push("/facilities-and-logistics/transport/transport-route");
+        if(value.key === "15.2")  router.push("/facilities-and-logistics/transport/add-vechile");
+        if(value.key === "15.3")  router.push("/facilities-and-logistics/transport/assign-vechile");
+
+        if(value.key === "16.1")  router.push("/facilities-and-logistics/mess-manamement/add-meal");
+        if(value.key === "16.2")  router.push("/facilities-and-logistics/mess-manamement/meal-schedule");
+
+        if(value.key === "17.1")  router.push("/facilities-and-logistics/hostel/hostel");
+        if(value.key === "17.2")  router.push("/facilities-and-logistics/hostel/room-type");
+        if(value.key === "17.3")  router.push("/facilities-and-logistics/hostel/hostel-room");
+
+        if(value.key === "18.1")  router.push("/facilities-and-logistics/inventory/issue-item");
+        if(value.key === "18.2")  router.push("/facilities-and-logistics/inventory/add-item-stock");
+        if(value.key === "18.3")  router.push("/facilities-and-logistics/inventory/add-item");
+        if(value.key === "18.4")  router.push("/facilities-and-logistics/inventory/item-category");
+        if(value.key === "18.5")  router.push("/facilities-and-logistics/inventory/item-store");
+        if(value.key === "18.6")  router.push("/facilities-and-logistics/inventory/item-supplier");
+
+        if(value.key === "19.1")  router.push("/financial-management/expenses/add-expense");
+        if(value.key === "19.2")  router.push("/financial-management/expenses/expense-type");
+
+        if(value.key === "20.1")  router.push("/financial-management/income/add-income");
+        if(value.key === "20.2")  router.push("/financial-management/income/income-type");
+
+        if(value.key === "21.1")  router.push("/financial-management/manage-fees/master-fee");
+        if(value.key === "21.2")  router.push("/financial-management/manage-fees/concession-fee");
+        if(value.key === "21.3")  router.push("/financial-management/manage-fees/genrate-fee-and-payment");
+        if(value.key === "21.4")  router.push("/financial-management/manage-fees/generate-extra-fee");
+        if(value.key === "21.5")  router.push("/financial-management/manage-fees/fee-transaction");
+
         if(value.key === "22")  router.push("/student-engagement/manage-holiday");
         if(value.key === "23")  router.push("/student-engagement/events");
         if(value.key === "24.1")  router.push("/student-engagement/manage-noticeboard/notice-board-list");
@@ -345,6 +461,34 @@ const SideMenu = ({ name, activeKey }: menuProps) => {
         if(value.key === "30.6")  router.push("/student-adminstration/manage-reportcard/upload-core-student-mark");
         if(value.key === "30.7")  router.push("/student-adminstration/manage-reportcard/upload-extra-student-grade");
     
+        if(value.key === "31.1")  router.push("/admission-and-enrollment/lead-management/pending-leads");
+        if(value.key === "31.2")  router.push("/admission-and-enrollment/lead-management/assigned-leads");
+
+        if(value.key === "32.1")  router.push("/exam-and-evaluation/manage-examination/missed-examination"); 
+        if(value.key === "32.2")  router.push("/exam-and-evaluation/manage-examination/exam-type-list");
+        if(value.key === "32.3")  router.push("/exam-and-evaluation/manage-examination/create-question-bank");
+        if(value.key === "32.4")  router.push("/exam-and-evaluation/manage-examination/draft-examination");
+        if(value.key === "32.5")  router.push("/exam-and-evaluation/manage-examination/verified-question-bank");
+        if(value.key === "32.6")  router.push("/exam-and-evaluation/manage-examination/download-upload-excel");
+        if(value.key === "32.7")  router.push("/exam-and-evaluation/manage-examination/create-examination");
+        if(value.key === "32.8")  router.push("/exam-and-evaluation/manage-examination/draft-question");
+        if(value.key === "32.9")  router.push("/exam-and-evaluation/manage-examination/published-examination");
+        
+        if(value.key === "33.1")  router.push("/comms-and-reporting/report/staff-coordinator-attendance-report");
+        if(value.key === "33.2")  router.push("/comms-and-reporting/report/student-attendance-report");
+        if(value.key === "33.3")  router.push("/comms-and-reporting/report/student-fee-report");
+        if(value.key === "33.4")  router.push("/comms-and-reporting/report/registered-reports");
+        if(value.key === "33.5")  router.push("/comms-and-reporting/report/class-strength-report");
+        if(value.key === "33.6")  router.push("/comms-and-reporting/report/sibling-student-report");
+        if(value.key === "33.7")  router.push("/comms-and-reporting/report/student-report");
+        if(value.key === "33.8")  router.push("/comms-and-reporting/report/student-fee-concession-report");
+        if(value.key === "33.9")  router.push("/comms-and-reporting/report/student-fee-waiver-report");
+
+        if(value.key === "34.1")  router.push("/comms-and-reporting/certificate/bonafide-certificate"); 
+        if(value.key === "34.2")  router.push("/comms-and-reporting/certificate/transfer-certificate");
+        if(value.key === "34.3")  router.push("/comms-and-reporting/certificate/fee-certificate");
+        if(value.key === "34.4")  router.push("/comms-and-reporting/certificate/generate-transfer-certificate");
+
         if(value.key === "Students")  router.push("/students");
         if(value.key === "Wallet")  router.push("/wallet");
         if(value.key === "Analytics")  router.push("/analytics");

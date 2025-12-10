@@ -12,13 +12,14 @@ interface card {
   cardLink?: string;
   percentage?: string | number;
   multipleImage?: boolean;
+  hideIcon?: boolean;
 }
 const Cards = ({
   image,
   title,
   total,
   cardLink,
-  percentage,
+  hideIcon,
   multipleImage
 }: card) => {
   return (
@@ -39,7 +40,7 @@ const Cards = ({
 
         {cardLink && <div className={variables.bottomCard}>
           <Link href="/courses" style={{color: "#858585"}} className="text-sm font-medium">{cardLink} </Link>
-           <RightOutlined />
+           {!hideIcon && <RightOutlined />}
           {/* <p className='yellowPercent'><RiseOutlined className="text-lg" /> {percentage}%</p> */}
         </div>}
     </div>

@@ -1,0 +1,98 @@
+import { CloseCircleOutlined } from '@ant-design/icons'
+import { Button, Col, DatePicker, Form, Input, InputNumber, Modal, Row, Select } from 'antd'
+import React from 'react'
+
+interface modal {
+    open: boolean;
+    onCancel: () => void;
+}
+const FormItem = Form.Item;
+
+const ItemIssue = ({ open, onCancel }: modal) => {
+  return (
+     <Modal 
+        title={<p className='text-lg font-medium'>Add Item Issue</p>}
+        open={open}
+        onCancel={onCancel}
+        closeIcon={<CloseCircleOutlined />}
+        footer={<Button type="primary" className='!text-[#3E444C] !font-bold' style={{height: 48, minWidth: 107, borderRadius: 5}}>Submit</Button>}
+        width={900}
+        styles={{body: {marginTop: 20}}}
+    >
+        <Form layout="vertical">
+            <Row gutter={[15, 0]}>
+                
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="User Type" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Issue To" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                 <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Issue By" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Issue Date" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                 <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Return Date" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <DatePicker style={{width: "100%"}} />
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Note" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Input />
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Item Category" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                <Col lg={12} sm={12} xs={12}>
+                    <FormItem label="Item" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <Select placeholder="Select">
+                                                
+                        </Select>
+                    </FormItem>
+                </Col>
+
+                <Col lg={24} sm={24} xs={24}>
+                    <FormItem label="Quantity" style={{fontWeight:"400"}} name="coverimage" rules={[{required: true}]}>
+                        <InputNumber min={0} style={{width: "100%"}}/>
+                    </FormItem>
+                </Col>
+
+               
+            </Row>
+        </Form>
+    </Modal>
+  )
+}
+
+export default ItemIssue

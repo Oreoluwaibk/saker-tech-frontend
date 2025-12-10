@@ -33,7 +33,7 @@ const StudentWorkBookResult = ({open, onCancel}:modal) => {
       key: '3',
       title: 'Result',
       dataIndex: 'result',
-      render: (value)=><ul className='flex gap-2'>{value.map((link)=> <li key={link}>{link}</li>)}</ul>
+      render: (value)=><ul className='flex gap-2'>{value.map((link: any)=> <li key={link}>{link}</li>)}</ul>
     },
     
   ];
